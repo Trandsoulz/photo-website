@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   
+}
+
+.scrollRemove {
+  scrollbar-width: none;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.gradienting::before {
+  content: "";
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  max-width: 90rem;
+  margin: 0 auto;
+  /* padding: 1rem; */
+}
+.my-masonry-grid_column {
+  /* padding-left: 30px; gutter size */
+
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 30px;
+}
+
+.overlay-demo {
+  display: grid;
+  grid-template-areas: "stack";
+}
+.overlay-demo > * {
+  grid-area: stack;
+}
+
+.overlay-demo div {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.overlay-demo:is(:hover, :focus) div {
+  opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .overlay-demo div {
+    opacity: 1; 
+    background-color: transparent;
+    transition: opacity 300ms;
+  }
+
+  .overlay-demo:is(:hover, :focus) div {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  .sticky-nav {
+    @apply bg-white text-black fixed right-0 left-0 shadow duration-200 shadow-black !important;
+  }
+
+  .nav {
+    @apply absolute text-white duration-200 right-0 left-0 !important;
+  }
+}
