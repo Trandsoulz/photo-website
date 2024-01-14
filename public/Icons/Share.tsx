@@ -8,7 +8,7 @@ const Share = (props: SVGProps<SVGSVGElement>) => (
     style={{
       fill: "#000",
       transform: "scaleX(-1)",
-      msfilter:
+      msFilter:
         "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)",
     }}
     {...props}
